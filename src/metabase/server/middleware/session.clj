@@ -285,7 +285,7 @@
                                     :%lower.email (u/lower-case-en email))
           user (if user-maybe user-maybe
                    (-> (user/create-new-ldap-auth-user! {:first_name (or (get headers remote-user-first-name-header) email)
-                                                         :last_name  (or (get headers remote-user-last-name-header) (trs "Unknown"))
+                                                         :last_name  (or (get headers remote-user-last-name-header) (tru "Unknown"))
                                                          :email      email})
                        (assoc :is_active true)))
           {session-uuid :id, :as session} (create-session! :sso user (req.util/device-info request))
