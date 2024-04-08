@@ -1,5 +1,11 @@
 # Metabase
 
+> This is a fork of metabase to support preauthentication through Cloudflare Access based on the work by [@vprus](https://github.com/vprus) on this [commit](https://github.com/vprus/metabase/commit/4d81dbd8433b6dd705004d31cc877455e66802a1).
+>
+> The session is created based on the `Cf-Access-Authenticated-User-Email` header, which will introduce forced login security risks if not used correctly. The metabase port needs to be closed off to non-cloudflare clients. Additionally, if not used with Tunnels, an additional `Host` header check needs to be done.
+> 
+> A more secure implementation (if you care to make one), would use the `Cf-Access-Jwt-Assertion` and [validate](https://developers.cloudflare.com/cloudflare-one/identity/authorization-cookie/validating-json/) the JWT.
+
 [Metabase](https://www.metabase.com) is the easy, open-source way for everyone in your company to ask questions and learn from data.
 
 ![Metabase Product Screenshot](docs/images/metabase-product-screenshot.svg)
